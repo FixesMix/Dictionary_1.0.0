@@ -1,6 +1,12 @@
 import requests
 from urllib.parse import quote
 import json
+import streamlit as st
+
+st.title("Word lookup")
+uiWord = st.text_input("Enter word:  ", "awaiting...")
+
+
 
 #Typing in a word will show the complete definition along with synonyms and antonyms. You can select synonyms/antonyms in order to view definition of those along wth more
 #synonyms/antonyms.
