@@ -1,11 +1,14 @@
 import requests
+from urllib.parse import quote
 import json
 
 #Typing in a word will show the complete definition along with synonyms and antonyms. You can select synonyms/antonyms in order to view definition of those along wth more
 #synonyms/antonyms.
 
-def get_thesaurus():
-  url = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/happy?key=2e315893-3873-4d30-87ca-76c03247fbc0"
+def get_thesaurus(word):
+  encoded_word = quote(word)
+  url = f"https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{encoded_word}?key=2e315893-3873-4d30-87ca-76c03247fbc0"
+  print(url)
   response = requests.get(url)
   data = response.json()
   entry = data[0]
@@ -47,26 +50,19 @@ def get_thesaurus():
               if "wd" in ant_dict:
                 wordAntonyms.append(ant_dict["wd"])
 
-
-
-          
-
-
-          
-
-
-    
-
     return wordToBeDefined, wordType, wordDefinitions, wordSynonyms, wordPhraseSynonyms, wordNearSynonyms, wordAntonyms
   else: 
     return None
 
-defineThis = get_thesaurus()
-if defineThis is not None: 
-  print(f"{defineThis}")
-else:
-  print("Did not work properly.")
-
+running = True
+while running:
+  word = input("What word would you like to look up today?  ")
+  defineThis = get_thesaurus(word)
+  if defineThis is not None: 
+      print(f"{defineThis}")
+  else:
+    print("Word was never inputted.")
+  
 
 
 
