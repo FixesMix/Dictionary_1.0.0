@@ -14,15 +14,24 @@ def get_thesaurus():
     wordToBeDefined = data[0]["hwi"]["hw"]#hwi is headword info, hw is headword string
     wordType = data[0]["fl"]
     wordDefinitions = [] #def is a list of definitions for the given word. Lists are denoted by brackets (index by number). Curly braces are dicitionaries (index by name)
+    wordSynonyms = []
     for sseq in entry["def"][0]["sseq"]:
       for sense in sseq: #iterate through the list of senses (meanings) for a given word. For each sense in the list of sense sequences, do x
         sense_data = sense[1] #skip to 1, as sense[0] is just "sense"
         if "dt" in sense_data: #if "defining text" is in the sense data of a particular, listed sense
-          for dt_item in sense_data["dt"]: #append the definition text to the list of defining text
-            if dt_item[0] == "text":
-              wordDefinitions.append(dt_item[1])
+          for dt_pair in sense_data["dt"]: #append the definition text to the list of defining text
+            if dt_pair[0] == "text":
+              wordDefinitions.append(dt_pair[1])
+        if "syn_list" in sense_data: #if this is located in sense data, list all synonyms in the synonym list
+          for syn_group in sense_data["syn_list"]:
+              for syn_dict in syn_group:
+                if "wd" in syn_dict:
+                  wordSynonyms.append(syn_dict["wd"])
 
-    return wordToBeDefined, wordType, wordDefinitions
+
+    
+
+    return wordToBeDefined, wordType, wordDefinitions, wordSynonyms
   else: 
     return None
 
