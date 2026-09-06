@@ -85,10 +85,11 @@ def get_thesaurus(word):
   return results
 
 
-def display_word(word, word_type, definitions, synonyms, phrase_synonyms, near_synonyms, antonyms):
+def display_word(word,  word_type, definitions, synonyms, phrase_synonyms, near_synonyms, antonyms):
     print("\n" + "=" * 50)
     print(f"{word.upper()} ({word_type})")
     print("=" * 50)
+
     print("\nWord Definition:")
     for i, d in enumerate(definitions, 1):
         print(f"  {i}. {d}")
@@ -112,12 +113,12 @@ while running:
     if word:
         results = get_thesaurus(word)     
         if results is not None:
-            for entry in results:               # loop through every part of speech
+            for entry in results: 
                 display_word(entry["word"], entry["type"], entry["definitions"],
                              entry["synonyms"], entry["phrase_synonyms"],
                              entry["near_synonyms"], entry["antonyms"])
         else:
-            print("Something went wrong looking that word up.")
+            print("Something went wrong with word lookup.")
     else:
         print("Word was never inputted.")
 
