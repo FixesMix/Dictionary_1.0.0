@@ -94,7 +94,7 @@ def get_thesaurus(word):
       return results
 
 running = True
-while running:
+while running: #fix this tomororw
   word = input("What word would you like to look up today?  ")
   if len(word) > 0: 
       defineThis = get_thesaurus(word)
