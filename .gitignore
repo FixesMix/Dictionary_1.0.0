@@ -1,5 +1,6 @@
 secrets.py
 apiTest.py
+freeapiTest.py
 .env
 dist/
 build/

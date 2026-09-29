@@ -85,11 +85,11 @@
    'C:\\Users\\Aura\\AppData\\Roaming\\Python\\Python314\\site-packages\\setuptools\\_vendor\\jaraco\\text\\Lorem '
    'ipsum.txt',
    'DATA'),
-  ('certifi\\cacert.pem',
-   'C:\\Users\\Aura\\AppData\\Roaming\\Python\\Python314\\site-packages\\certifi\\cacert.pem',
-   'DATA'),
   ('certifi\\py.typed',
    'C:\\Users\\Aura\\AppData\\Roaming\\Python\\Python314\\site-packages\\certifi\\py.typed',
+   'DATA'),
+  ('certifi\\cacert.pem',
+   'C:\\Users\\Aura\\AppData\\Roaming\\Python\\Python314\\site-packages\\certifi\\cacert.pem',
    'DATA'),
   ('base_library.zip',
    'P:\\vscode\\Python Projects\\Dictionary\\build\\The '
